@@ -1,0 +1,126 @@
+********************
+Cliente
+********************
+
+INSERT INTO `backend`.`cliente`
+(
+`nombre`,
+`apellido`,
+`telefono`,
+`mail`,
+`genero`)
+VALUES
+(
+'Juan',
+'Perez',
+'55555555',
+'jperez@gmail.com',
+'m');
+
+INSERT INTO `backend`.`cliente`
+(
+`nombre`,
+`apellido`,
+`telefono`,
+`mail`,
+`genero`)
+VALUES
+(
+'Jose',
+'Garcia',
+'55556666',
+'jgarcia@gmail.com',
+'m');
+
+********************
+Menu
+********************
+INSERT INTO `backend`.`menu`
+(
+`descripcion`,
+`precio`)
+VALUES
+(
+'Papas fritas',
+5000);
+
+INSERT INTO `backend`.`menu`
+(
+`descripcion`,
+`precio`)
+VALUES
+(
+'Milanesa',
+6000);
+
+
+********************
+Mesa
+********************
+INSERT INTO `backend`.`mesa`
+(
+`descripcion`,
+`ubicacion`)
+VALUES
+(
+'Mesa estandard',
+'Frente');
+
+INSERT INTO `backend`.`mesa`
+(
+`descripcion`,
+`ubicacion`)
+VALUES
+(
+'Mesa estandard',
+'Fondo');
+
+
+********************
+Reserva
+********************
+
+INSERT INTO `backend`.`reserva`
+(
+`idCliente`,
+`idmesa`,
+`fechaHora`,
+`cantidad`,
+`tomada`)
+VALUES
+(
+1,
+1,
+now(),
+2,
+0);
+
+INSERT INTO `backend`.`reserva`
+(
+`idCliente`,
+`idmesa`,
+`fechaHora`,
+`cantidad`,
+`tomada`)
+VALUES
+(
+1,
+2,
+now(),
+2,
+0);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

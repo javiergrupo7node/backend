@@ -1,0 +1,60 @@
+const db = require("../db/db");
+
+const getCliente =  (request, response)=>{
+    const id = request.params.id;
+    const sql = "select * from cliente where id =" + id;
+    db.query(sql,(err, result) => {
+        if(err) throw err;
+
+        response.send(result);
+    
+    });
+};
+
+const createCliente = (req, res) => {
+    
+    // operador ternario:
+    // (condicion) ? resultado verdadero: resultado falso
+    const dataRequest = (Object.keys(req.params).length > 0 ) ? req.params: req.body;
+
+    const {nombre, apellido, telefono, mail, genero}= dataRequest ;
+
+    const sql = 'INSERT INTO `backend`.`cliente`(`nombre`,`apellido`,`telefono`,`mail`,`genero`) VALUES (?, ?, ?, ?, ?);'
+    db.query(sql,[nombre, apellido, telefono, mail, genero] ,(err, result) => {
+        if (err) throw err;
+        res.send(result);         
+    });
+}
+    
+
+const updateCliente = (req, res) => {
+    const id = req.params.id; // OJO con este parametro...
+    const dataRequest = req.body;
+
+    // Puedo decidir si necesito si o si todos los parametros o puedo manejar solo algunos...
+    const {nombre, apellido, telefono, mail, genero}= dataRequest ;
+
+    const sql = 'UPDATE `backend`.`cliente` SET `nombre` = ?, `apellido` = ?, `telefono` = ?, `mail` =?, `genero` = ? WHERE id =' + id;
+    db.query(sql,[nombre, apellido, telefono, mail, genero] ,(err, result) => {
+        if (err) throw err;
+        res.send(result);        
+    });
+
+};
+
+
+const deleteCliente = (req, res) => {
+    const id = req.params.id; // OJO con este parametro...
+    const sqlDeleteUser = 'DELETE from `backend`.`cliente` WHERE id='+id;
+
+        db.query(sqlDeleteUser, (err, result) => {
+            if (err) throw err;
+            res.send(result);        
+        });
+        
+
+}
+
+module.exports = { getCliente, createCliente,updateCliente,deleteCliente};
+
+

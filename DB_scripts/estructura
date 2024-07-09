@@ -1,0 +1,52 @@
+CREATE SCHEMA 'backend' ;
+
+CREATE TABLE 'backend'.'cliente' (
+  'id' INT NOT NULL,
+  'nombre' VARCHAR(45) NULL,
+  'apellido' VARCHAR(45) NULL,
+  'telefono' VARCHAR(45) NULL,
+  'mail' VARCHAR(45) NULL,
+  'genero' VARCHAR(45) NULL);
+  
+  CREATE TABLE 'backend'.'reserva' (
+  'id' INT NOT NULL,
+  'idCliente' INT NOT NULL,
+  'idMesa' INT NULL,
+  'fechaHora' DATETIME NULL,
+  'cantidad' INT NULL,
+  'tomada' INT NULL);
+  
+  CREATE TABLE 'backend'.'mesa' (
+  'id' INT NOT NULL,
+  'descripcion' VARCHAR(45) NULL,
+  'ubicacion' VARCHAR(100) NULL);
+  
+  CREATE TABLE 'backend'.'menu' (
+  'id' INT NOT NULL,
+  'descripcion' VARCHAR(100) NULL,
+  'precio' DECIMAL NULL);
+  
+ALTER TABLE `backend`.`cliente` 
+CHANGE COLUMN `id` `id` INT NOT NULL AUTO_INCREMENT ,
+ADD PRIMARY KEY (`id`);
+;
+
+ALTER TABLE `backend`.`menu` 
+CHANGE COLUMN `id` `id` INT NOT NULL AUTO_INCREMENT ,
+ADD PRIMARY KEY (`id`);
+;
+
+ALTER TABLE `backend`.`mesa` 
+CHANGE COLUMN `id` `id` INT NOT NULL AUTO_INCREMENT ,
+ADD PRIMARY KEY (`id`);
+;
+
+ALTER TABLE `backend`.`reserva` 
+CHANGE COLUMN `id` `id` INT NOT NULL AUTO_INCREMENT ,
+ADD PRIMARY KEY (`id`);
+;
+
+ALTER TABLE backend.reserva
+ADD CONSTRAINT FK_Reserva_Cliente
+FOREIGN KEY (idCliente)
+REFERENCES cliente(id);
