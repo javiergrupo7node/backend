@@ -27,7 +27,13 @@ app.use("/user",userRoutes);
 app.use("/clientes",clientesRoutes);
 app.use("/cliente",clienteRoutes);
 
-
+server.listen(
+    process.env.ALWAYSDATA_HTTPD_PORT,
+    process.env.ALWAYSDATA_HTTPD_IP,
+    function(){
+        console.log('Server running!');
+    }
+);
 
 
 app.listen(PORT, ()=> {
