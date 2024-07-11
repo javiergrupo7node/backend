@@ -10,9 +10,9 @@ const connection = mysql.createConnection({
 */
 const connection = mysql.createConnection({
     host:'localhost',
-    user: 'root',
-    password:'368517_codoacodo',
-    database:'practica001'
+    user: '368517_codoacodo',
+    password:'practica001',
+    database:'codoacodogrupo7_db'
 });
 
 
