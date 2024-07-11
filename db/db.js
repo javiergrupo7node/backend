@@ -11,7 +11,7 @@ const connection = mysql.createConnection({
 const connection = mysql.createConnection({
     host:'localhost',
     user: 'root',
-    password:'codoacodo',
+    password:'368517_codoacodo',
     database:'backend'//'practica001'
 });
 
